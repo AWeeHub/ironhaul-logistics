@@ -1492,6 +1492,13 @@ navLinks.querySelectorAll('a').forEach(a => {
     navBurger.setAttribute('aria-expanded', 'false');
   });
 });
+
+/* ── RECALCULATE SCROLL POSITIONS ON ZOOM / RESIZE ── */
+let _rzt;
+window.addEventListener('resize', () => {
+  clearTimeout(_rzt);
+  _rzt = setTimeout(() => ScrollTrigger.refresh(true), 200);
+}, { passive: true });
 </script>
 </body>
 </html>
